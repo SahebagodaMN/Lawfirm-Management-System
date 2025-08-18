@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="container">
+        <div class="jumbotron"><br>
+            <div class="card card-body">
+                {% if registered %}
+                    <h1>Thank You for Registration</h1>
+                    <p>please proced to<a href="{% url 'login' %}">Login</a></p>
+                {% else %}
+                <h1 style="text-align: center; color: magenta">Registration form</h1><br>
+                <form action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <!-- <div class="row" style="color: red;"> -->
+                    <div class="row">
+                        <div class="col">
+                            {{ form.username | as_crispy_field }}
+                        </div>
+                        <div class="col">
+                            {{ form.email | as_crispy_field }}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            {{ form1.phone | as_crispy_field }}
+                        </div>
+                        <div class="col">
+                            {{ form1.address | as_crispy_field }}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            {{ form1.street | as_crispy_field }}
+                        </div>
+                        <div class="col">
+                            {{ form1.city | as_crispy_field }}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            {{ form1.state | as_crispy_field }}
+                        </div>
+                        <div class="col">
+                            {{ form1.zipcode | as_crispy_field }}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            {{ form1.profile_pic | as_crispy_field }}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            {{ form.password | as_crispy_field }}
+                        </div>
+                    </div>
+
+                    <!-- <div class="row">
+                            <input type="submit" value="REGISTER" class="btn btn-primary">
+                    </div> -->
+
+                    {{ form1.captcha | as_crispy_field }}
+                    <br>
+                    <input type="submit" value="REGISTER" class="btn btn-primary">
+                </form>
+            {% endif %}
+            </div>
+        </div>
+    </div>
+    <!-- {{ form.as_p }}
+    {{ form1.as_p }} -->
+{% endblock %}

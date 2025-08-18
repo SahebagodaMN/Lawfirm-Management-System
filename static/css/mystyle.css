@@ -1,0 +1,42 @@
+/* img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+} */
+
+body {
+  background-color: #f4f6f9;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+h2,
+h5 {
+  color: #1c1f4c;
+}
+.hero {
+  background: #6a651c
+    url("https://images.unsplash.com/photo-1600267165913-284f4e7fbd15")
+    no-repeat center center/cover;
+  color: white;
+  height: 40vh;
+  display: flex;
+  align-items: center;
+  text-shadow: 1px 1px 5px black;
+}
+
+.image img{
+    border-radius: 50%;
+    width: 250px;
+    height: 250px;
+    border: 5px solid #212529;
+}
+
+.practice-area {
+  background-color: #f8f9fa;
+  padding: 40px 0;
+}
+.footer {
+  background-color: #212529;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+}

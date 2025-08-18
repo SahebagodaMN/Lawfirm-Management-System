@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container">
+        <div class="jumbotron"><br>
+            <div class="card card-body">
+                <h1 style="text-align:center;">Login Form</h1>
+                <br>
+                <form action="{% url 'login' %}" method="POST">
+                    {% csrf_token %}
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="floatingInput" name="username" placeholder="Username">
+                        <label for="floatingInput">Username</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password">
+                        <label for="floatingPassword">Password</label>
+                    </div>
+                    <br>
+                    <input type="submit" class="btn btn-success" value="LOGIN">
+                </form>
+            </div>` 
+        </div>
+    </div> 
+{% endblock %}

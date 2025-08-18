@@ -1,0 +1,78 @@
+{% extends 'lawfirm/base.html' %}
+{% block content %}
+
+<section class="hero text-center">
+    <div class="container">
+        <h1 class="display-4 fw-bold">"Guiding to the Law Clarity and Strength"</h1>
+        <!-- <p class="lead">"Guiding to the Law Clarity and Strength"</p> -->
+        <!-- <a href="#contact" class="btn btn-primary btn-lg mt-4">Book a Consultation</a> -->
+    </div>
+</section>
+
+<center>
+
+<div class="container">
+    <div class="profile_section mt-4">
+        <h2 class="mb-4" style="font-weight: bolder; font-size:40px; color:rgb(55, 0, 255)">Enquery Form</h2>
+
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" class="btn btn-primary">
+        </form>
+    </div>
+</div>
+
+<br>
+<hr>
+
+<div class="container enquery-table">
+    <div class="mt-4 text-center">
+        <!-- <h1>Enquery Details</h1> -->
+        <h3 class="mb-4" style="font-weight: bolder; color:rgb(55, 0, 255)">Enquery Details</h3>
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>SLNO</th>
+                    <th>Full Name</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Addres</th>
+                    <th>Case Type</th>
+                    <th>Description</th>
+                    <th>Document</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for enquery in enqueries %}
+                    <tr>
+                        <td>{{ forloop.counter}}</td>
+                        <td>{{ enquery.name}}</td>
+                        <td>{{ enquery.phone}}</td>
+                        <td>{{ enquery.email}}</td>
+                        <td>{{ enquery.address}}</td>
+                        <td>{{ enquery.case_type}}</td>
+                        <td>{{ enquery.description}}</td>
+                        <td>
+                            {% if enquery.any_doc %}
+                                <img src="{{ enquery.any_doc.url }}" alt="" width="100px" height="100px">
+                            {% else %}
+                                <span class="text-muted">No file</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="8" class="text-center">No enqueries found</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+</center>
+
+
+{% endblock %}
+

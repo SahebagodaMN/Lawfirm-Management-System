@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="{% static 'css/mystyle.css' %}">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=balance" />
+
+
+</head>
+<body>
+
+{% if user.is_authenticated %}
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container">
+    <ul class="nav navbar">
+      <li class="nav-item"><a class="nav-link" href="{% url 'index' %}">LAMFIRM</a></li>
+      <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+      <li class="nav-item"><a class="nav-link" href="{% url 'userProfile' %}">Profile</a></li>
+      <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
+    </ul>
+  </div>
+</nav>
+{% else %}
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container">
+    <ul class="nav navbar">
+      <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">LAMFIRM</a></li>
+      <li class="nav-item"><a class="nav-link" href="{% url 'registration' %}">Register</a></li>
+      <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
+    </ul>
+  </div>
+</nav>
+{% endif %}
+
+{% block content %}
+{% endblock %}
+
+</body>
+</html>
+

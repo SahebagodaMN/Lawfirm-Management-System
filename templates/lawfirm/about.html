@@ -1,0 +1,49 @@
+{% extends 'lawfirm/base.html' %}
+{% block content %}
+
+<!-- Hero Section -->
+<div class="container my-5" style="height: auto; width: 100%;">
+  <h2 class="mb-4 text-center" style="font-weight: bolder; font-size:40px; color:rgb(55, 0, 255)">About Me</h2>
+
+  {% if firm %}
+  <div class="card shadow-lg p-3 border-0">
+    <div class="row g-4 align-items-center">
+      
+      <!-- Image Column -->
+      <div class="col-lg-5 image text-center">
+        {% if firm.advimg %}
+          <img src="{{ firm.advimg.url }}" class="img-fluid shadow" alt="{{ firm.name }}">
+        {% else %}
+          <img src="https://via.placeholder.com/400x400.png?text=No+Image" class="img-fluid rounded shadow" alt="No image">
+        {% endif %}
+      </div>
+
+      <!-- Details Column -->
+      <div class="col-lg-7">
+        <div class="ps-lg-4">
+          <h3 class="fw-bold mb-3">{{ firm.name }}</h3>
+          <p><i class="bi bi-envelope"></i> <strong>Email:</strong> {{ firm.email }}</p>
+          <p><i class="bi bi-award"></i> <strong>Experience:</strong> {{ firm.years_of_exp }} years</p>
+          <p><i class="bi bi-briefcase"></i> <strong>Specialization:</strong> {{ firm.specialization }}</p>
+          <p><i class="bi bi-bar-chart"></i> <strong>Total Cases:</strong> {{ firm.total_cases }}</p>
+          <p><i class="bi bi-chat-left-text"></i> <strong>Description:</strong> {{ firm.description }}</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  {% else %}
+    <p class="text-center text-muted">No law firm data available.</p>
+  {% endif %}
+</div>
+
+<!-- Contact Section -->
+<section id="contact" class="py-5 bg-light">
+  <div class="container text-center">
+    <h2 class="mb-3" style="font-weight: bolder; color:rgba(0, 0, 0, 0.844)">Contact</h2>
+    <p>Ready to discuss your case? Let’s schedule a consultation.</p>
+    <a href="tel:‪+919876543210‬" class="btn btn-success btn-lg">📞 Call Now</a>
+  </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container">
+        <div class="jumbotron"><br>
+            <h1>UPDATE USER DETAILS</h1>
+            <br>
+            <form action="{% url 'update' %}" enctype="multipart/form-data" method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                {{ form1.as_p }}
+                <input type="submit" class="btn btn-success" value="UPDATE">
+            </form>
+        </div>
+    </div> 
+{% endblock %}  

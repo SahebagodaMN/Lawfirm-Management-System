@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container">
+        <div class="jumbotron"><br>
+            <!-- <h1>User Profile</h1> -->
+            <h2 class="mb-4 text-center" style="font-weight: bolder; font-size:60px; color:rgb(55, 0, 255)">User Profile</h2>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card card-body">
+                        <h1>Username : {{ user.username }}</h1>
+                        <h1>Email : {{ user.email }}</h1>
+                        <h1>MOB : {{ user.userprofile.phone }}</h1>
+                        <h1>Add : {{ user.userprofile.address }}</h1>
+                        <h1>Street : {{ user.userprofile.street }}</h1>
+                        <h1>City : {{ user.userprofile.city }}</h1>
+                        <h1>State : {{ user.userprofile.state }}</h1>
+                        <h1>PIN : {{ user.userprofile.zipcode }}</h1>
+                        <a href="{% url 'update' %}" class="btn btn-info">UPDATE</a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card card-body">
+                        {% if user.userprofile.profile_pic %}
+                        <img src="{{ user.userprofile.profile_pic.url }}" alt="NO-IMG" height="200px" width="200px">
+                        {% else %}
+                            <p>no image to dispaly </p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+
+    <hr>
+
+    <div class="container enquery-table">
+    <div class="mt-4 text-center">
+        <h3>My Appointments</h3>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Case_id</th>
+                    <th>Case Type</th>
+                    <th>Case_Desc</th>
+                    <th>Court</th>
+                    <th>Lawyer</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Created_on</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for case_data in case_datas %}
+                    <tr>
+                        <td>{{ forloop.counter}}</td>
+
+                        <td>{{ case_data.case_type}}</td>
+                        <!-- <td>{{ case_data.Case_Desc}}</td> -->
+                        <td>{{ case_data.Court}}</td>
+                        <!-- <td>{{ case_data.Lawyer}}</td> -->
+
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <!-- <td>{{ case_data.date}}</td> -->
+                        <!-- <td>{{ case_data.time}}</td> -->
+                        <td>{{ case_data.created_at}}</td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="8" class="text-center">No enqueries found</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}
