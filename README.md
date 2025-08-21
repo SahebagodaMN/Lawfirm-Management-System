@@ -34,6 +34,7 @@ This project is powered by a blend of technologies, each contributing to the sys
 - ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white) - Our choice for a robust, scalable database system.
 - ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white) - Structuring the web with the latest standards.
 - ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white) - Styling our application for a polished look.
+- ![Bootstrap](https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white) - Building responsive and modern UI with Bootstrap 5.
 
 
 ## Concluding Thoughts 💭
